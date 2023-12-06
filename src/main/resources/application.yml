@@ -1,0 +1,54 @@
+springdoc:
+  packagesToScan:
+    - com.assessment.hotelbooking.controller
+
+server.port: 8808
+
+spring:
+  jpa:
+    database: MYSQL
+    openInView: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        # https://docs.jboss.org/hibernate/stable/core.old/reference/en/html/configuration-optional.html
+        jdbc:
+          batch_size: 25
+          batch_versioned_data: true
+          time_zone: UTC
+        order_inserts: true
+        order_updates: true
+        show_sql: true
+
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: "jdbc:mysql://localhost:3306/hotel_booking_db?useUnicode=yes&characterEncoding=utf-8&useSSL=true&requireSSL=true"
+    username: "root"
+    password: "root"
+    hikari:
+      connectionTimeout: 30000
+      maxLifetime: 240000
+      maximumPoolSize: 50
+      minimumIdle: 5
+      idleTimeout: 230000
+      data-source-properties:
+        prep-stmt-cache-size: 250
+        prep-stmt-cache-sql-limit: 2048
+        cache-prep-stmts: true
+        use-server-prep-stmts: true
+  aop:
+    auto: false
+
+
+feign:
+  okhttp:
+    enabled: true
+  client:
+    config:
+      token-management-service:
+        url: "http://localhost:8302"
+
+hotel-regulations:
+  check-in-time: "14:00"
+  check-out-time: "12:00"
+  minimum-age: 18
