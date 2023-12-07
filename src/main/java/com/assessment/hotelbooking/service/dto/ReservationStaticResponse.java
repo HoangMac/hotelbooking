@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class ReservationCancelResponse {
+public class ReservationStaticResponse {
 
   private String message;
 

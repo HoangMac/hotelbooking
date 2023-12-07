@@ -1,24 +1,32 @@
 package com.assessment.hotelbooking.infra.repo.entity;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.PostLoad;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table
 @Data
 @SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class ReservationOrder extends AbstractEntity {
 
@@ -47,7 +55,7 @@ public class ReservationOrder extends AbstractEntity {
   private LocalTime checkInTime;
 
   @NotNull
-  @Column(name = "check_out")
+  @Column(name = "check_out_date")
   private LocalDate checkOutDate;
 
   @Column(name = "check_out_time")
@@ -71,4 +79,9 @@ public class ReservationOrder extends AbstractEntity {
   @Column(name = "payment_status")
   @Enumerated(EnumType.STRING)
   private PaymentStatus paymentStatus;
+
+  @PostLoad
+  private void calculateNightsCount() {
+    nightsCount = ChronoUnit.DAYS.between(checkInDate, checkOutDate);
+  }
 }

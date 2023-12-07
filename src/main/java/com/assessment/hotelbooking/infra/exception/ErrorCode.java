@@ -13,7 +13,8 @@ public enum ErrorCode {
   PROFILE_MISSING("011", "Profile id missing"),
   ORDER_NOT_FOUND("012", "Reservation order not found"),
   ROOM_NOT_FOUND("013", "Room not found"),
-  INVALID_CANCEL("014", "Order status not valid for cancellation"),
+  PAYMENT_METHOD_NOT_FOUND("014", "Payment method not found"),
+  INVALID_CANCEL("015", "Order status not valid for cancellation"),
 
 
   MINIMUM_AGE_RESTRICTED("021", "Customer must be >= 18 years old"),

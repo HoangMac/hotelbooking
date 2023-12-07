@@ -2,8 +2,10 @@ package com.assessment.hotelbooking.infra.repo.entity;
 
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
@@ -11,6 +13,8 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @SuperBuilder
 @MappedSuperclass
+@NoArgsConstructor
+@AllArgsConstructor
 public abstract class AbstractEntity extends Auditable {
 
   @Version

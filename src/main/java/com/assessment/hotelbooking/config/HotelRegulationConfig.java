@@ -10,9 +10,11 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "hotel-regulations")
 public class HotelRegulationConfig {
 
-  private LocalTime checkInTime;
+  private String code;
 
-  private LocalTime checkOutTime;
+  private String checkInTime;
+
+  private String checkOutTime;
 
   private Long minimumAge;
 }

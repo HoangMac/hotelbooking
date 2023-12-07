@@ -39,16 +39,8 @@ spring:
   aop:
     auto: false
 
-
-feign:
-  okhttp:
-    enabled: true
-  client:
-    config:
-      token-management-service:
-        url: "http://localhost:8302"
-
 hotel-regulations:
+  code: "NW"
   check-in-time: "14:00"
   check-out-time: "12:00"
   minimum-age: 18

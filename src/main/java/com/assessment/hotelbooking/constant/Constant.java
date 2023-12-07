@@ -1,5 +1,6 @@
 package com.assessment.hotelbooking.constant;
 
+import java.time.format.DateTimeFormatter;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
@@ -22,10 +23,12 @@ public class Constant {
 
 
   // Others
-  public static final Integer VALIDATE_ORDER_STEP_ID = 1;
-  public static final Integer PERFORM_PAYMENT_STEP_ID = 2;
+  public static final int VALIDATE_ORDER_STEP_ID = 1;
+  public static final int PERFORM_PAYMENT_STEP_ID = 2;
 
+  public static final int AGE_RESTRICTION_RULE_ID = 1;
+  public static final int OCCUPANCY_LIMIT_RULE_ID = 2;
 
-  public static final Integer AGE_RESTRICTION_RULE_ID = 1;
-  public static final Integer OCCUPANCY_LIMIT_RULE_ID = 2;
+  public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+  public static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
 }

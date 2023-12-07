@@ -8,14 +8,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table
 @Data
 @SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class PaymentMethod extends AbstractEntity {
 
@@ -29,6 +33,7 @@ public class PaymentMethod extends AbstractEntity {
 
   @NotNull
   @Column(name = "type")
+  @Enumerated(EnumType.STRING)
   private PaymentType type;
 
   @NotNull

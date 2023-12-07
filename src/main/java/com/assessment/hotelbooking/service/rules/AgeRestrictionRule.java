@@ -8,8 +8,8 @@ import com.assessment.hotelbooking.infra.exception.DomainException;
 import com.assessment.hotelbooking.infra.exception.ErrorCode;
 import com.assessment.hotelbooking.infra.repo.CustomerRepository;
 import com.assessment.hotelbooking.infra.repo.entity.ReservationOrder;
-import java.time.Duration;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -27,8 +27,7 @@ public class AgeRestrictionRule implements ValidateRule<ReservationOrder> {
   public ValidateResult validate(ReservationOrder order) {
     var customer = customerRepository.findById(order.getCustomerId())
         .orElseThrow(() -> new DomainException(ErrorCode.PROFILE_NOT_FOUND));
-    long customerAge =
-        Duration.between(LocalDate.now(), customer.getDateOfBirth()).toDays() / 12 / 60;
+    long customerAge = ChronoUnit.YEARS.between(customer.getDateOfBirth(), LocalDate.now());
     if (customerAge < regulationConfig.getMinimumAge()) {
       return failedResult(MINIMUM_AGE_RESTRICTED);
     }

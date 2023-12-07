@@ -16,12 +16,12 @@ import org.springframework.stereotype.Component;
 @Order(OCCUPANCY_LIMIT_RULE_ID)
 public class OccupancyLimitRule implements ValidateRule<ReservationOrder> {
 
-  private RoomInfoRepository roomInfoRepository;
+  private final RoomInfoRepository roomInfoRepository;
 
   @Override
   public ValidateResult validate(ReservationOrder order) {
 
-    var roomInfo = roomInfoRepository.findById(order.getPaymentMethodId())
+    var roomInfo = roomInfoRepository.findById(order.getRoomCode())
         .orElseThrow(() -> new DomainException(ErrorCode.ROOM_NOT_FOUND));
 
     if (order.getGuestCount() > roomInfo.getMaxCapacity()) {
