@@ -12,6 +12,7 @@ import org.springframework.context.ApplicationContext;
 @AllArgsConstructor
 public enum ReservationOrderStatus {
   INITIAL(InitialOrderHandlerImpl.class),
+  VALIDATED_FAILED(DefaultReservationOrderHandlerImpl.class),
   PENDING_PAYMENT(PendingPaymentOrderHandlerImpl.class),
   PAYMENT_FAILED(RetryPaymentOrderHandlerImpl.class),
   UPCOMING(DefaultReservationOrderHandlerImpl.class),

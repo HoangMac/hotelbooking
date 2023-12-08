@@ -18,13 +18,13 @@ spring:
           time_zone: UTC
         order_inserts: true
         order_updates: true
-        show_sql: true
+        show_sql: false
 
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: "jdbc:mysql://localhost:3306/hotel_booking_db?useUnicode=yes&characterEncoding=utf-8&useSSL=true&requireSSL=true"
-    username: "root"
-    password: "root"
+    url: "jdbc:mysql://${DB_URL:localhost1}:${DB_PORT:33061}/hotel_booking_db?useUnicode=yes&characterEncoding=utf-8&useSSL=true&requireSSL=true"
+    username: "${DB_USER:root1}"
+    password: "${DB_PWD:root1}"
     hikari:
       connectionTimeout: 30000
       maxLifetime: 240000

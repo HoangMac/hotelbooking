@@ -39,6 +39,6 @@ public class ReservationSpec {
 
   private static Specification<ReservationOrder> hasStatus(ReservationOrderStatus status) {
     return (root, query, builder) -> status == null ? builder.conjunction()
-        : builder.equal(root.get(STATUS), status.name());
+        : builder.equal(root.get(STATUS).as(ReservationOrderStatus.class), status);
   }
 }

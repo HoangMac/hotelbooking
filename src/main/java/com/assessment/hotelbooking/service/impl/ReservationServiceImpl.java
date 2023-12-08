@@ -39,6 +39,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class ReservationServiceImpl implements ReservationService {
 
   private final CustomerProfileHolder profileHolder;
+
   private final ReservationOrderRepository reservationOrderRepository;
 
   private final OrderProcessingService orderProcessingService;
