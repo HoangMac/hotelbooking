@@ -1,0 +1,322 @@
+{
+	"info": {
+		"_postman_id": "2ebc2459-e121-415d-a0c7-eab55b085b78",
+		"name": "Hotel Booking v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21007071"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.globals.set(\"jwt\", jsonData.accessToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"bob\",\n    \"blob2Passcode\": \"ablob2passcode\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8808/hotel-booking/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8808",
+					"path": [
+						"hotel-booking",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Reservation",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"INITIAL\",\n    \"checkIn\": \"07-12-2023\",\n    \"checkOut\": \"10-12-2023\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8808/hotel-booking/reservations/1.0.0/search?size=10&page=0",
+					"host": [
+						"localhost"
+					],
+					"port": "8808",
+					"path": [
+						"hotel-booking",
+						"reservations",
+						"1.0.0",
+						"search"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Reservation Status",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8808/hotel-booking/reservations/1.0.0/:reservationId/status",
+					"host": [
+						"localhost"
+					],
+					"port": "8808",
+					"path": [
+						"hotel-booking",
+						"reservations",
+						"1.0.0",
+						":reservationId",
+						"status"
+					],
+					"variable": [
+						{
+							"key": "reservationId",
+							"value": "bf61c2bc-e5a9-43fe-8b8a-012345678911"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Detail Reservation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8808/hotel-booking/reservations/1.0.0/:reservationId",
+					"host": [
+						"localhost"
+					],
+					"port": "8808",
+					"path": [
+						"hotel-booking",
+						"reservations",
+						"1.0.0",
+						":reservationId"
+					],
+					"variable": [
+						{
+							"key": "reservationId",
+							"value": "bf61c2bc-e5a9-43fe-8b8a-012345678911"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Reservation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8808/hotel-booking/reservations/1.0.0/:reservationId/cancel",
+					"host": [
+						"localhost"
+					],
+					"port": "8808",
+					"path": [
+						"hotel-booking",
+						"reservations",
+						"1.0.0",
+						":reservationId",
+						"cancel"
+					],
+					"variable": [
+						{
+							"key": "reservationId",
+							"value": "bf61c2bc-e5a9-43fe-8b8a-012345678911"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Reservation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"guestCount\": \"3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8808/hotel-booking/reservations/1.0.0/:reservationId",
+					"host": [
+						"localhost"
+					],
+					"port": "8808",
+					"path": [
+						"hotel-booking",
+						"reservations",
+						"1.0.0",
+						":reservationId"
+					],
+					"variable": [
+						{
+							"key": "reservationId",
+							"value": "bf61c2bc-e5a9-43fe-8b8a-012345678911"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Reservation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"checkIn\": \"07-12-2023\",\n    \"checkOut\": \"10-12-2023\",\n    \"roomCode\": \"C305\",\n    \"guestCount\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8808/hotel-booking/reservations/1.0.0/",
+					"host": [
+						"localhost"
+					],
+					"port": "8808",
+					"path": [
+						"hotel-booking",
+						"reservations",
+						"1.0.0",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

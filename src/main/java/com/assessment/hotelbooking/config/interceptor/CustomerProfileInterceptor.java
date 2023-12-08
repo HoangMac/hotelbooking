@@ -37,7 +37,7 @@ public class CustomerProfileInterceptor implements HandlerInterceptor {
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
       throws Exception {
 
-    var customerId = request.getHeader(CUSTOMER_ID_HEADER);
+    var customerId = String.valueOf(request.getAttribute(CUSTOMER_ID_HEADER));
     if (StringUtils.isNotBlank(customerId)) {
       var customerOptional = customerRepository.findById(customerId);
       if (customerOptional.isPresent()) {
@@ -58,9 +58,7 @@ public class CustomerProfileInterceptor implements HandlerInterceptor {
     return false;
   }
 
-  private void writeResponseError(
-      HttpServletResponse response, ErrorCode errorCode
-  ) throws IOException {
+  private void writeResponseError(HttpServletResponse response, ErrorCode errorCode) throws IOException {
     response.setStatus(HttpStatus.FORBIDDEN.value());
     response.setContentType(MediaType.APPLICATION_JSON_VALUE);
     var responseJson = Map.of(

@@ -7,6 +7,7 @@ import lombok.experimental.UtilityClass;
 public class Constant {
 
   // Request
+  public static final String AUTHORIZATION_HEADER = "Authorization";
   public static final String CUSTOMER_ID_HEADER = "customerId";
   public static final String PROFILE_ATTRIBUTE = "customer_profile";
 

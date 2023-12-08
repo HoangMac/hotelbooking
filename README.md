@@ -62,4 +62,6 @@ http://localhost:8808/swagger-ui.html
 ![img.png](img.png)
 
 ### Sample Requests
+Import the collection to your Postman for testing :
 
+Hotel Booking v1.postman_collection.json

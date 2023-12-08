@@ -13,3 +13,4 @@
 
 ### Added or Changed
 - Add API Search, Create, Update, View (Status, Detail), Cancel
+- Add Mock Authentication and Authorization via JWT
