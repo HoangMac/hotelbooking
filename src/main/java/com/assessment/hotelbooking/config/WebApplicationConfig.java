@@ -18,8 +18,8 @@ public class WebApplicationConfig implements WebMvcConfigurer {
   @Override
   public void addInterceptors(InterceptorRegistry registry) {
     registry.addInterceptor(jwtTokenExtractor)
-        .addPathPatterns("/hotel-booking/reservations/**");
+        .addPathPatterns("/hotel-booking/*/reservations/**");
     registry.addInterceptor(customerProfileInterceptor)
-        .addPathPatterns("/hotel-booking/reservations/**");
+        .addPathPatterns("/hotel-booking/*/reservations/**");
   }
 }

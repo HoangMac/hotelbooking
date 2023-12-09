@@ -56,5 +56,8 @@ CREATE TABLE room_info (
     modified_date TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP(3)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+CREATE INDEX idx__payment_method__customer_id ON payment_method(customer_id);
+CREATE INDEX idx__reservation_order__customer_id ON reservation_order(customer_id);
+
 
 

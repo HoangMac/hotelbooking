@@ -74,15 +74,15 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8808/hotel-booking/reservations/1.0.0/search?size=10&page=0",
+					"raw": "localhost:8808/hotel-booking/v1/reservations/search?size=10&page=0",
 					"host": [
 						"localhost"
 					],
 					"port": "8808",
 					"path": [
 						"hotel-booking",
+						"v1",
 						"reservations",
-						"1.0.0",
 						"search"
 					],
 					"query": [
@@ -115,15 +115,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8808/hotel-booking/reservations/1.0.0/:reservationId/status",
+					"raw": "localhost:8808/hotel-booking/v1/reservations/:reservationId/status",
 					"host": [
 						"localhost"
 					],
 					"port": "8808",
 					"path": [
 						"hotel-booking",
+						"v1",
 						"reservations",
-						"1.0.0",
 						":reservationId",
 						"status"
 					],
@@ -153,15 +153,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8808/hotel-booking/reservations/1.0.0/:reservationId",
+					"raw": "localhost:8808/hotel-booking/v1/reservations/:reservationId",
 					"host": [
 						"localhost"
 					],
 					"port": "8808",
 					"path": [
 						"hotel-booking",
+						"v1",
 						"reservations",
-						"1.0.0",
 						":reservationId"
 					],
 					"variable": [
@@ -190,15 +190,15 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "localhost:8808/hotel-booking/reservations/1.0.0/:reservationId/cancel",
+					"raw": "localhost:8808/hotel-booking/v1/reservations/:reservationId/cancel",
 					"host": [
 						"localhost"
 					],
 					"port": "8808",
 					"path": [
 						"hotel-booking",
+						"v1",
 						"reservations",
-						"1.0.0",
 						":reservationId",
 						"cancel"
 					],
@@ -225,7 +225,7 @@
 						}
 					]
 				},
-				"method": "PUT",
+				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
@@ -237,15 +237,15 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8808/hotel-booking/reservations/1.0.0/:reservationId",
+					"raw": "localhost:8808/hotel-booking/v1/reservations/:reservationId",
 					"host": [
 						"localhost"
 					],
 					"port": "8808",
 					"path": [
 						"hotel-booking",
+						"v1",
 						"reservations",
-						"1.0.0",
 						":reservationId"
 					],
 					"variable": [
@@ -283,15 +283,15 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8808/hotel-booking/reservations/1.0.0/",
+					"raw": "localhost:8808/hotel-booking/v1/reservations/",
 					"host": [
 						"localhost"
 					],
 					"port": "8808",
 					"path": [
 						"hotel-booking",
+						"v1",
 						"reservations",
-						"1.0.0",
 						""
 					]
 				}

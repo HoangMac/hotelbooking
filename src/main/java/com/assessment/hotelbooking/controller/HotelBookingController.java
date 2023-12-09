@@ -22,9 +22,9 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/hotel-booking/reservations/1.0.0")
+@RequestMapping(value = "/hotel-booking/v1/reservations")
 public class HotelBookingController {
 
   private final ReservationService reservationService;
@@ -81,7 +81,7 @@ public class HotelBookingController {
 
   @ApiResponse(description = "Update a reservation order")
   @Operation(summary = "Update a reservation orders")
-  @PutMapping(value = "/{reservationId}", produces = APPLICATION_JSON_VALUE)
+  @PatchMapping(value = "/{reservationId}", produces = APPLICATION_JSON_VALUE)
   public ReservationDetailResponse updateReservationOrder(
       @PathVariable("reservationId") UUID reservationId,
       @RequestBody @Valid ReservationUpdateRequest updateRequest) {
