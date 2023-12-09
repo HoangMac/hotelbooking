@@ -69,5 +69,14 @@ Import the collection to your Postman for testing :
 
 ## Documentations
 ### Process Flow
-![img_1.png](img_1.png)
+![process_flow.drawio.svg](process_flow.drawio.svg)
+
+### Sequence Diagram
+![sequence_diagram.drawio.svg](sequence_diagram.drawio.svg)
+
+### Infrastructure design
+![infrastructure_design.drawio.svg](infrastructure_design.drawio.svg)
+
+
+
 
