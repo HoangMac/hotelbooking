@@ -64,4 +64,10 @@ http://localhost:8808/swagger-ui.html
 ### Sample Requests
 Import the collection to your Postman for testing :
 
-Hotel Booking v1.postman_collection.json
+[Hotel Booking v1.postman_collection.json](https://github.com/HoangMac/hotelbooking/blob/main/Hotel%20Booking%20v1.postman_collection.json)
+
+
+## Documentations
+### Process Flow
+![img_1.png](img_1.png)
+
